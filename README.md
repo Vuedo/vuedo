@@ -1,4 +1,4 @@
-# Readme
+# Vuedo
 
 ## What is Vuedo?
 
