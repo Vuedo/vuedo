@@ -1,0 +1,16 @@
+/vendor
+/node_modules
+/public/storage
+/public/build/*
+/public/js/main.js
+/public/js/main.js.map
+/public/js/theme.js
+/public/js/theme.js.map
+/public/css/clean-blog.css
+/public/css/clean-blog.css.map
+/public/css/main.css
+/public/css/main.css.map
+.env
+.idea/
+.phpstorm.meta.php
+public/img/posts/

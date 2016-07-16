@@ -1,0 +1,51 @@
+{
+  "scripts": {
+    "prod": "gulp --production",
+    "dev": "gulp watch"
+  },
+  "devDependencies": {
+    "babel-core": "^6.9.1",
+    "babel-loader": "^6.2.4",
+    "babel-plugin-transform-runtime": "^6.9.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.5.0",
+    "babel-runtime": "^6.9.2",
+    "babelify": "^7.3.0",
+    "bootstrap-sass": "^3.3.6",
+    "css-loader": "^0.23.1",
+    "gulp": "^3.9.1",
+    "gulp-livereload": "^3.8.1",
+    "jquery": "^2.2.3",
+    "laravel-elixir": "^5.0.0",
+    "laravel-elixir-livereload": "^1.1.5-beta",
+    "laravel-elixir-vueify": "^1.0.3",
+    "pnotify": "^3.0.0",
+    "sweetalert2": "^4.0.5",
+    "vue": "^1.0.25",
+    "vue-hot-reload-api": "^1.3.2",
+    "vue-html-loader": "^1.2.2",
+    "vue-loader": "^8.5.2",
+    "vue-multiselect": "^0.3.0",
+    "vue-resource": "0.8.0",
+    "vue-router": "^0.7.13",
+    "vue-style-loader": "^1.0.0",
+    "vueify": "^8.5.4",
+    "webpack": "^1.13.1"
+  },
+  "name": "vuejs-news",
+  "description": "[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework) [![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework) [![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework) [![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework) [![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)",
+  "version": "1.0.0",
+  "main": "gulpfile.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "dropzone": "^4.3.0",
+    "simplemde": "^1.11.2",
+    "vue-multiselect": "^0.3.0",
+    "vuejs-paginator": "^1.0.14"
+  },
+  "author": "Alex Kyriakidis <hootlex@icloud.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/vuedo/vuedo"
+}
