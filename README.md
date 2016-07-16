@@ -42,6 +42,10 @@ php artisan serve
 
 You can find a detailed description and list with the libraries used in development here()
 
+## Documentation
+
+Coming soon...
+
 ## Issues
 
 For technical questions and bugs feel free to open one issue.
@@ -52,7 +56,7 @@ Soon a roadmap for contribution will be added so everyone will be welcome to joi
 
 ## Stay In Touch
 
-For latest releases and announcements, follow on Twitter: [@vuedo](https://twitter.com/vuedo)
+For latest releases and announcements, follow [@vuedo](https://twitter.com/vuedo) on Twitter.
 
 ## License
 
