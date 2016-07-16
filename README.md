@@ -31,7 +31,6 @@ Run the following commands:
 ```
 composer install
 npm install
-php artisan migrate:install
 php artisan migrate
 php artisan db:seed
 php artisan serve
