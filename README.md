@@ -40,7 +40,7 @@ php artisan serve
 
 ## Technical Description
 
-You can find a technical description and a list with the libraries used in development [here](https://github.com/Vuedo/vuedo/wiki/Technical-Description).
+You can find the technical description and a list with the libraries used in development [here](https://github.com/Vuedo/vuedo/wiki/Technical-Description).
 
 ## Documentation
 
