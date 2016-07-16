@@ -8,7 +8,7 @@ Vuedo is an open source project built with Laravel and Vue.js. It is a live exam
 
 Vue.js News is a place where News, Tutorials, Plugins, Showcases and more things regarding Vue are handpicked and shared with the community.
 
-
+![Dashboard Overview](http://i.imgur.com/4AdbjsF.gif)
 
 ## Basic Features:
 
