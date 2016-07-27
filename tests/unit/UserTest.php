@@ -39,7 +39,7 @@ class UserTest extends TestCase
     }
 
     /** @test */
-    public function it_applies_motAdmin_scope(){
+    public function it_applies_notAdmin_scope(){
         createUser([], 2);
         factory(\App\User::class, 'admin', 2)->create();
 
