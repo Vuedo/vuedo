@@ -26,13 +26,14 @@ Vue.js Feed is a place where News, Tutorials, Plugins, Showcases and more things
 
 Download this repo.
 
-Rename `env.example` to `.env` and fill the options.
+Rename `.env.example` to `.env` and fill the options.
 
 Run the following commands:
 
 ```
 composer install
 npm install
+php artisan key:generate
 php artisan migrate
 php artisan db:seed
 gulp

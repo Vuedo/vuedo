@@ -54,6 +54,10 @@ class Post extends Model implements HasMedia
 
     protected $fillable = ['title', 'slug', 'description', 'content'];
 
+    /**
+     * The user that belong to the post.
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function owner()
     {
         return $this->belongsTo(User::class, 'created_by', 'id');
@@ -70,6 +74,7 @@ class Post extends Model implements HasMedia
 
 
     /**
+     * Check if the post has specific category.
      * @param $category
      *
      * @return bool
@@ -85,6 +90,10 @@ class Post extends Model implements HasMedia
         return false;
     }
 
+    /**
+     * Get post status as human readable string.
+     * @return string
+     */
     public function getHumanStatus()
     {
         switch ($this->status) {
@@ -110,6 +119,11 @@ class Post extends Model implements HasMedia
     {
         return Hashids::encode($this->id);
     }
+
+    /**
+     * Get the original Url to an image
+     * @return string|null
+     */
     public function getImageUrlAttribute()
     {
         return $this->hasMedia() ? $this->getFirstMedia('featured')->getUrl() : null;
@@ -129,4 +143,3 @@ class Post extends Model implements HasMedia
         ];
     }
 }
-
