@@ -10,6 +10,10 @@
 /public/css/clean-blog.css.map
 /public/css/main.css
 /public/css/main.css.map
+resources/views/themes/*
+!resources/views/themes/clean-blog/
+resources/assets/themes/*
+!resources/assets/themes/clean-blog/
 .env
 .idea/
 .phpstorm.meta.php
