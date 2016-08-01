@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e301dcb2e4e147e238b13c1316fc425f",
-    "content-hash": "5842d2cc01c41d5549b171739b499281",
+    "hash": "c4885729cefa6c97cb7db038ee09eff7",
+    "content-hash": "e217a6ea92beb8c3ccba54a055c87fbc",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -1050,6 +1050,95 @@
                 "parser"
             ],
             "time": "2015-11-01 10:19:22"
+        },
+        {
+            "name": "eusonlito/laravel-meta",
+            "version": "v3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/eusonlito/laravel-Meta.git",
+                "reference": "dd43eaebbcbebc9fefb6e4622f611db2e0eb3f1a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/eusonlito/laravel-Meta/zipball/dd43eaebbcbebc9fefb6e4622f611db2e0eb3f1a",
+                "reference": "dd43eaebbcbebc9fefb6e4622f611db2e0eb3f1a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Eusonlito\\LaravelMeta\\": "src/Eusonlito/LaravelMeta/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Lito",
+                    "email": "lito@eordes.com"
+                }
+            ],
+            "description": "A package to manage Header Meta Tags",
+            "keywords": [
+                "head",
+                "laravel",
+                "meta",
+                "tags"
+            ],
+            "time": "2016-05-26 06:56:54"
+        },
+        {
+            "name": "ezyang/htmlpurifier",
+            "version": "v4.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ezyang/htmlpurifier.git",
+                "reference": "d0c392f77d2f2a3dcf7fcb79e2a1e2b8804e75b2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ezyang/htmlpurifier/zipball/d0c392f77d2f2a3dcf7fcb79e2a1e2b8804e75b2",
+                "reference": "d0c392f77d2f2a3dcf7fcb79e2a1e2b8804e75b2",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "HTMLPurifier": "library/"
+                },
+                "files": [
+                    "library/HTMLPurifier.composer.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL"
+            ],
+            "authors": [
+                {
+                    "name": "Edward Z. Yang",
+                    "email": "admin@htmlpurifier.org",
+                    "homepage": "http://ezyang.com"
+                }
+            ],
+            "description": "Standards compliant HTML filter written in PHP",
+            "homepage": "http://htmlpurifier.org/",
+            "keywords": [
+                "html"
+            ],
+            "time": "2016-07-16 12:58:58"
         },
         {
             "name": "fzaninotto/faker",
@@ -3978,12 +4067,12 @@
             "version": "2.3.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/vinkla/hashids.git",
+                "url": "https://github.com/vinkla/laravel-hashids.git",
                 "reference": "4ff0bb50f0e2a20854246731adf628b294531ea4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vinkla/hashids/zipball/4ff0bb50f0e2a20854246731adf628b294531ea4",
+                "url": "https://api.github.com/repos/vinkla/laravel-hashids/zipball/4ff0bb50f0e2a20854246731adf628b294531ea4",
                 "reference": "4ff0bb50f0e2a20854246731adf628b294531ea4",
                 "shasum": ""
             },

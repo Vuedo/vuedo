@@ -168,7 +168,8 @@ return [
         Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
         Hootlex\Moderation\ModerationServiceProvider::class,
         HieuLe\Active\ActiveServiceProvider::class,
-        \App\Providers\ViewComposerProvider::class
+        \App\Providers\ViewComposerProvider::class,
+        Eusonlito\LaravelMeta\MetaServiceProvider::class
 
 
     ],
@@ -220,6 +221,7 @@ return [
         'Fractal' => Cyvelnet\Laravel5Fractal\Facades\Fractal::class,
         'Hashids' => Vinkla\Hashids\Facades\Hashids::class,
         'Active' => HieuLe\Active\Facades\Active::class,
+        'Meta'    => Eusonlito\LaravelMeta\Facade::class,
     ],
 
 ];
