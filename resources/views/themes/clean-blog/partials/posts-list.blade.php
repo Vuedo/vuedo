@@ -15,7 +15,7 @@
                 {{ $post->description }}
             </h3>
         </a>
-        <p class="post-meta">Posted by <a href="#">{{$post->owner->name}}</a> {{$post->created_at->diffForHumans()}}</p>
+        <p class="post-meta">Posted by <a href="#">{{$post->owner->name}}</a> {{$post->moderated_at->diffForHumans()}}</p>
     </div>
     <hr>
 @endforeach

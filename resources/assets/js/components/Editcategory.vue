@@ -6,7 +6,7 @@
   </div>
   <!-- /.box-header -->
   <!-- form start -->
-  <form class="form-horizontal">
+  <form @keydown.enter.prevent="deleteCategory" class="form-horizontal">
     <div class="box-body">
       <div class="form-group">
         <label for="title" class="col-sm-1 control-label">Title</label>
@@ -23,8 +23,8 @@
     </div>
     <!-- /.box-body -->
     <div class="box-footer">
-      <button class="btn btn-danger" v-link="{ path: '/categories' }" @click="deleteCategory(category)">Delete</button>
-      <button class="btn btn-info pull-right" @click="updateCategory(category)">Save category</button>
+      <button class="btn btn-flat btn-info pull-right" @click="updateCategory(category)">Save category</button>
+      <button class="btn btn-flat btn-danger" @click="deleteCategory(category)">Delete</button>
     </div>
     <!-- /.box-footer -->
   </form>
@@ -59,11 +59,36 @@ export default {
       })
     },
     deleteCategory (category) {
-      this.$http.delete('/api/categories/' + category.hashid, category).then(function (response) {
-        show_stack_success('Category deleted!', response)
-      }, function (response){
-        show_stack_error('Failed to delete category!', response)
-      })
+      event.preventDefault();
+      let self = this
+      swal({
+        title: 'Are you sure?',
+        text: 'You will not be able to recover this category!',
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, delete it!',
+        cancelButtonText: 'No, keep it',
+      }).then(function() {
+        self.$http.delete('/api/categories/' + category.hashid, category).then(function (response) {
+          self.$router.go('/categories')
+          swal(
+            'Deleted!',
+            'Your category has been deleted.',
+            'success'
+          );
+        }, function (response){
+          show_stack_error('Failed to delete category', response)
+        })
+      }, function(dismiss) {
+        // dismiss can be 'cancel', 'overlay', 'close', 'timer'
+        if (dismiss === 'cancel') {
+          swal(
+            'Cancelled',
+            'Your category is safe :)',
+            'error'
+          );
+        }
+      });
     }
   }
 }

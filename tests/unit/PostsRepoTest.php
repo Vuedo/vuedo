@@ -12,39 +12,39 @@ class PostsRepoTest extends TestCase
     use DatabaseTransactions;
     /** @test */
     public function it_returns_all_posts(){
-        createPost([], 20);
+        createPost(['moderated_at' => time()], 20);
         
         $posts = PostsRepo::getPosts();
-        $expectedPosts = Post::orderBy('posts.created_at', 'DESC')->get();
+        $expectedPosts = Post::orderBy('posts.moderated_at', 'DESC')->get();
 
         $this->assertEquals($expectedPosts, $posts);
     }
 
     /** @test */
     public function it_returns_posts_paginated_with_relations(){
-        createPost([], 20);
+        createPost(['moderated_at' => time()], 20);
         
         $posts = PostsRepo::getPosts(10, 'owner');
-        $expectedPosts = Post::orderBy('posts.created_at', 'DESC')->with('owner')->paginate(10);
+        $expectedPosts = Post::orderBy('posts.moderated_at', 'DESC')->with('owner')->paginate(10);
 
         $this->assertEquals($expectedPosts, $posts);
     }
 
     /** @test */
     public function it_returns_categorys_posts_paginated_with_relations(){
-        $newPosts = createPost([], 20);
+        $newPosts = createPost(['moderated_at' => time()], 20);
         $category = createCategory();
         $category->posts()->attach($newPosts);
         
         $posts = PostsRepo::getCategoryPosts($category, 10, 'owner');
-        $expectedPosts = $category->posts()->orderBy('posts.created_at', 'DESC')->with('owner')->paginate(10);
+        $expectedPosts = $category->posts()->orderBy('posts.moderated_at', 'DESC')->with('owner')->paginate(10);
 
         $this->assertEquals($expectedPosts, $posts);
     }
 
     /** @test */
     public function it_returns_the_featured_posts(){
-        $posts = createPost([], 3);
+        $posts = createPost(['moderated_at' => time()], 3);
         $featured = Category::whereSlug('featured')->firstOrFail();
 
         $featured->posts()->attach($posts);
@@ -54,7 +54,7 @@ class PostsRepoTest extends TestCase
 
     /** @test */
     public function it_returns_the_latest_featured_post(){
-        $post = createPost();
+        $post = createPost(['moderated_at' => time()]);
         $featured = Category::whereSlug('featured')->firstOrFail();
 
         $featured->posts()->attach($post);

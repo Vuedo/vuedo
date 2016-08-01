@@ -1,5 +1,6 @@
 <?php
 
+use App\Post;
 use App\Transformers\PostTransformer;
 use App\Transformers\UserTransformer;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
@@ -16,7 +17,8 @@ class PostApiTest extends TestCase
         $this->get(route('api.posts.index'))
              ->seeJson()
              ->seeJsonContains(
-                 Fractal::collection(\Acme\PostsRepo::getPosts(10), new PostTransformer)->getArray()
+                 Post::withPostponed()->orderBy('created_at', 'DESC')->paginate(10)->items(),
+                 new PostTransformer
              );
     }
 

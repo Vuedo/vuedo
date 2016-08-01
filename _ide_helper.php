@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.2.37 on 2016-07-14.
+ * Generated for Laravel 5.2.37 on 2016-07-22.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -11624,6 +11624,91 @@ namespace {
          */
         public static function getController(){
             return \HieuLe\Active\Active::getController();
+        }
+        
+    }
+
+
+    class Meta extends \Eusonlito\LaravelMeta\Facade{
+        
+        /**
+         * 
+         *
+         * @param array $config
+         * @return object 
+         * @static 
+         */
+        public static function getInstance($config = array()){
+            return \Eusonlito\LaravelMeta\Meta::getInstance($config);
+        }
+        
+        /**
+         * 
+         *
+         * @param array $config
+         * @return \Eusonlito\LaravelMeta\this 
+         * @static 
+         */
+        public static function setConfig($config = array()){
+            return \Eusonlito\LaravelMeta\Meta::setConfig($config);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $key
+         * @param null|string $default
+         * @return string 
+         * @static 
+         */
+        public static function get($key, $default = null){
+            return \Eusonlito\LaravelMeta\Meta::get($key, $default);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $key
+         * @param string $value
+         * @return string 
+         * @static 
+         */
+        public static function set($key, $value){
+            return \Eusonlito\LaravelMeta\Meta::set($key, $value);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $title
+         * @return string 
+         * @static 
+         */
+        public static function title($title = null){
+            return \Eusonlito\LaravelMeta\Meta::title($title);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $key
+         * @param string $default
+         * @return string 
+         * @static 
+         */
+        public static function tag($key, $default = null){
+            return \Eusonlito\LaravelMeta\Meta::tag($key, $default);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $key
+         * @return string 
+         * @static 
+         */
+        public static function tags($keys = array()){
+            return \Eusonlito\LaravelMeta\Meta::tags($keys);
         }
         
     }

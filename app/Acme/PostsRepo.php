@@ -14,7 +14,7 @@ class PostsRepo
      * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
     public static function getPosts($perPage = null, $includes = []){
-        $builder = Post::orderBy('posts.created_at', 'DESC')->with($includes);
+        $builder = Post::orderBy('posts.moderated_at', 'DESC')->with($includes);
 
         return self::paginateOrGet($builder, $perPage);;
     }
@@ -27,7 +27,7 @@ class PostsRepo
      * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
     public static function getCategoryPosts($category, $perPage = null, $includes = []){
-        $builder = $category->posts()->orderBy('posts.created_at', 'DESC')->with($includes);
+        $builder = $category->posts()->orderBy('posts.moderated_at', 'DESC')->with($includes);
 
         return self::paginateOrGet($builder, $perPage);;
 

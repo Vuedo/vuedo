@@ -38,7 +38,6 @@ class CategoriesController extends ApiController
     {
         $category = new Category;
         $category->name = hash('adler32', time());
-//        $category->fill($request->all());
         $category->save();
         return $this->respondWith($category, new CategoryTransformer);
     }
@@ -68,6 +67,7 @@ class CategoriesController extends ApiController
     public function update(Request $request, Category $category)
     {
         $category->fill($request->all());
+        $category->slug = null;
         $category->save();
 
         return $this->respondWith($category, new CategoryTransformer);

@@ -6,10 +6,16 @@
 /public/js/main.js.map
 /public/js/theme.js
 /public/js/theme.js.map
+public/js/submit.js
+public/js/submit.js.map
 /public/css/clean-blog.css
 /public/css/clean-blog.css.map
 /public/css/main.css
 /public/css/main.css.map
+resources/views/themes/*
+!resources/views/themes/clean-blog/
+resources/assets/themes/*
+!resources/assets/themes/clean-blog/
 .env
 .idea/
 .phpstorm.meta.php

@@ -9,7 +9,7 @@ class PagesTest extends TestCase
     use DatabaseTransactions;
     /** @test */
     public function it_shows_latest_posts_on_home(){
-        $posts = createPost([], 10);
+        $posts = createPost(['moderated_at' => time()], 10);
         $this->visit(route('web.home'));
 
         //see the 10 latest posts
