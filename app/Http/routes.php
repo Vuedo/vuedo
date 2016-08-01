@@ -52,7 +52,6 @@ Route::group(['prefix' => 'api', 'middleware' => 'api', 'namespace' => 'Api'], f
     Route::put('me', ['as' => 'api.me.update', 'uses' => 'MeController@update']);
 });
 
-
 /*
 |--------------------------------------------------------------------------
 | Dashboard Routes

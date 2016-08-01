@@ -39,7 +39,8 @@ $factory->define(App\Post::class, function (Faker\Generator $faker) {
         'description' => $faker->sentences(2, true),
         'content' => markdownContent($faker),
         'created_by' => App\User::admin()->first()->id,
-        'status' => \Hootlex\Moderation\Status::APPROVED
+        'status' => \Hootlex\Moderation\Status::APPROVED,
+        'moderated_at' => time()
     ];
 });
 $factory->define(App\Category::class, function (Faker\Generator $faker) {
