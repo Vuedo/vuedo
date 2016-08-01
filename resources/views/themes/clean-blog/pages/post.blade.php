@@ -8,7 +8,7 @@
                     <div class="post-heading">
                         <h1>{{$post->title}}</h1>
                         <h2 class="subheading">{{$post->description}}</h2>
-                        <span class="meta">Posted by <a href="#">{{$post->owner->name}}</a> {{$post->created_at->diffForHumans()}}</span>
+                        <span class="meta">Posted by <a href="#">{{$post->owner->name}}</a> {{$post->moderated_at->diffForHumans()}}</span>
                     </div>
                 </div>
             </div>

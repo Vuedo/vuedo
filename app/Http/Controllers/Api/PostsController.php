@@ -27,7 +27,7 @@ class PostsController extends ApiController
     public function index(Request $request)
     {
         return $this->respondWith(
-            Post::orderBy('created_at', 'DESC')->paginate(10)->appends([ 'include' => $request->input('include')]),
+            Post::withPostponed()->orderBy('created_at', 'DESC')->paginate(10)->appends([ 'include' => $request->input('include')]),
             new PostTransformer
         );
     }
@@ -75,7 +75,7 @@ class PostsController extends ApiController
     {
         $post->fill($request->all());
         //escape any html tags before saving
-        $post->content = strip_tags($post->content);
+        //$post->content = strip_tags($post->content);
         $post->save();
 
         return $this->respondWith($post, new PostTransformer);
@@ -126,6 +126,9 @@ class PostsController extends ApiController
      */
     public function publish(Request $request, Post $post)
     {
+        //create new slug
+        $post->update(['slug' => null]);
+        
         if($request->user()->can('publish_post')){
             $post->markApproved();
         }

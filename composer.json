@@ -18,7 +18,9 @@
         "hootlex/laravel-moderation": "^1.0",
         "hieu-le/active": "^3.1",
         "erusev/parsedown-extra": "^0.7.1",
-        "larapack/config-writer": "1.*"
+        "larapack/config-writer": "1.*",
+        "eusonlito/laravel-meta": "^3.0",
+        "ezyang/htmlpurifier": "^4.8"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
