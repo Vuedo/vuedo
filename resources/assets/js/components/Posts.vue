@@ -1,8 +1,12 @@
 <template>
 <section class="content">
-  <h1>Posts</h1>
+  <h1 v-if="this.categoryId = this.$route.params.hashid">Posts in {{singleCategory}}</h1>
+  <h1 v-else>Posts</h1>
   <button type="button" @click="createPost" class="btn btn-lg btn-primary btn-flat" style="margin-bottom: 15px;">
     Create Post
+  </button>
+  <button type="button" @click="refresh" class="btn pull-right btn-lg btn-warning btn-flat" style="margin-bottom: 15px;">
+    Refresh page
   </button>
   <div class="row">
     <div class="col-xs-12">
@@ -28,17 +32,22 @@
               <td class="col-md-3">{{post.description}}</td>
               <td class="col-md-2">
                 <div class="box-body">
-                  <img class="img-responsive img-thumbnail" :src="post.image || 'http://i.imgur.com/F12Dfl0.jpg'" alt="Photo">
+                  <img class="img-responsive img-thumbnail" :src="post.image || 'https://i.imgur.com/F12Dfl0.jpg'" alt="Photo">
                 </div>
               </td>
               <td class="col-md-1">
-                <div v-for="category in post.categories.data">
-                 <b class="badge bg-aqua">{{category.name}}</b>
-               </div>
+                <div v-if="post.categories === undefined">
+                  <b class="badge bg-aqua">{{singleCategory}}</b>
+                </div>
+                <div v-else>
+                  <div v-for="category in post.categories.data">
+                   <b class="badge bg-aqua">{{category.name}}</b>
+                 </div>
+                </div>
               </td>
               <td class="col-md-3">
                 <div class="btn-group">
-                  <a href="/blog/{{post.slug}}" target="blank" class="btn btn-success" role="button">View</a>
+                  <a v-if="post.status == 'approved'" href="/blog/{{post.slug}}" target="blank"  class="btn btn-success" role="button">View</a>
                   <button v-link="{ name: 'editpost', params: {hashid: post.hashid}}" type="button" class="btn btn-info">Edit</button>
                   <button type="button" class="btn btn-danger" @click="deletePost(post)">Delete</button>
                 </div>
@@ -136,6 +145,9 @@ export default {
         this.$router.go('/posts/'  + response.data.hashid + '/edit')
       })
     },
+    refresh () {
+      location.reload();
+    }
   },
   computed: {
     resource_url: function () {
@@ -144,6 +156,13 @@ export default {
         } else {
           return '/api/posts?include=categories'
         }
+    },
+    singleCategory: function () {
+      for (var i = 0; i < this.options2.length; i++) {
+         if (this.options2[i].hashid === this.categoryId) {
+          return this.options2[i].name
+        }
+      }
     }
   },
 }
