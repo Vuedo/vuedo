@@ -18,7 +18,7 @@ cache:
     - $HOME/.composer/cache
 
 before_install:
-  - phpenv config-rm xdebug.ini
+  - if [[ $TRAVIS_PHP_VERSION != hhvm ]]; then phpenv config-rm xdebug.ini; fi;
 
 install:
   - composer install --dev --prefer-source --no-interaction
