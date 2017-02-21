@@ -1,6 +1,7 @@
 <template>
-<h1>Users</h1>
-  <section class="content">
+  <div class="">
+    <h1>Users</h1>
+    <section class="content">
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
@@ -30,41 +31,42 @@
         </div>
       </div>
     </section>
+  </div>
 </template>
 
 <script>
-  export default {
-    data () {
-      return {
+export default {
+  data () {
+    return {
       // note: changing this line won't causes changes
       // with hot-reload because the reloaded component
       // preserves its current state and we are modifying
       // its initial state.
       users: [
-      {
-        first: 'George',
-        last: 'Mania',
-        posts: 28,
-        admin: true
-      },
-      {
-        first: 'Gus',
-        last: 'Mr. Weebl',
-        posts: 8,
-        admin: false
-      },
-      {
-        first: 'Sunday',
-        last: 'Darth Vader',
-        posts: 52,
-        admin: false
-      },
-      {
-        first: 'Ika',
-        last: 'Boromir',
-        posts: 74,
-        admin: false
-      }
+        {
+          first: 'George',
+          last: 'Mania',
+          posts: 28,
+          admin: true
+        },
+        {
+          first: 'Gus',
+          last: 'Mr. Weebl',
+          posts: 8,
+          admin: false
+        },
+        {
+          first: 'Sunday',
+          last: 'Darth Vader',
+          posts: 52,
+          admin: false
+        },
+        {
+          first: 'Ika',
+          last: 'Boromir',
+          posts: 74,
+          admin: false
+        }
       ]
     }
   }
@@ -72,7 +74,7 @@
 </script>
 
 <style>
-  body {
-    font-family: Helvetica, sans-serif;
-  }
+body {
+  font-family: Helvetica, sans-serif;
+}
 </style>

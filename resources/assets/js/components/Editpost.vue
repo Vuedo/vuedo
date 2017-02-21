@@ -1,9 +1,10 @@
 <template>
+<div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
 <section class="content">
     <div class="row">
         <div class="col-md-12">
-          <a v-if="post.status == 'approved'" href="/blog/{{post.slug}}" target="blank"  class="btn btn-lg btn-flat btn-success" role="button" style="margin-bottom: 15px;">
+          <a v-if="post.status == 'approved'" v-bind:href="'/blog/' + post.slug" target="blank"  class="btn btn-lg btn-flat btn-success" role="button" style="margin-bottom: 15px;">
             View Post
           </a>
             <div class="box box-info">
@@ -59,6 +60,7 @@
     </div>
     <!-- ./row -->
 </section>
+</div>
 </template>
 <script>
 import SimpleMDE from 'simplemde'
@@ -67,7 +69,7 @@ import Multiselect from 'vue-multiselect/lib/vue-multiselect.js'
 import {stack_bottomright, show_stack_success, show_stack_error} from '../Pnotice.js'
 
 export default {
-    created() {
+    created () {
         this.postId = this.$route.params.hashid
         this.fetchPost()
         this.fetchCatetgories()
@@ -76,7 +78,7 @@ export default {
         Dropzone,
         Multiselect
     },
-    ready(){
+    mounted () {
         this.simplemde = new SimpleMDE({
             element: document.getElementById("mdeditor"),
             spellChecker: false,
@@ -138,7 +140,7 @@ export default {
                                     'Your post has been published to the world!.',
                                     'success'
                             );
-                            this.$router.go('/posts/')
+                            this.$router.push('/posts/')
                         }, function (response) {
                             show_stack_error('Failed to publish post!', response)
                         })
@@ -179,7 +181,7 @@ export default {
                 cancelButtonText: 'No, keep it',
             }).then(function () {
                 self.$http.delete('/api/posts/' + post.hashid, post).then(function (response) {
-                    self.$router.go('/posts')
+                    self.$router.push('/posts')
                     swal(
                             'Deleted!',
                             'Your post has been deleted.',

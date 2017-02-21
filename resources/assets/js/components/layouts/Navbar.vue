@@ -43,7 +43,7 @@
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a v-link="{ path: '/profile' }" class="btn btn-default btn-flat">Profile</a>
+                  <router-link to="/profile" class="btn btn-default btn-flat">Profile</router-link>
                 </div>
                 <div class="pull-right">
                   <a href="#" class="btn btn-default btn-flat" @click="logout">Log out</a>

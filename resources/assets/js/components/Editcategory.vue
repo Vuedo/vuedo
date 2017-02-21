@@ -35,7 +35,7 @@
 import { stack_bottomright, show_stack_success, show_stack_error } from '../Pnotice.js'
 
 export default {
-  ready(){
+  mounted () {
     this.fetchCategory()
   },
   data () {
@@ -70,7 +70,7 @@ export default {
         cancelButtonText: 'No, keep it',
       }).then(function() {
         self.$http.delete('/api/categories/' + category.hashid, category).then(function (response) {
-          self.$router.go('/categories')
+          self.$router.push('/categories')
           swal(
             'Deleted!',
             'Your category has been deleted.',

@@ -1,25 +1,27 @@
 <template>
-<div >
-  <navbar></navbar>
-  <sidebar></sidebar>
-</div>
   <div id="app">
-    <div class="content-wrapper">
-      <!-- Content Header (Page header) -->
-      <section class="content-header">
-        <h1>
-          Admin Panel
-          <small>Everything is here.</small>
-        </h1>
-      </section>
+    <div class="navigation">
+      <navbar></navbar>
+      <sidebar></sidebar>
+    </div>
+    <div>
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            Admin Panel
+            <small>Everything is here.</small>
+          </h1>
+        </section>
 
-      <!-- Main content -->
-      <section class="content">
-        <!-- Your Page Content Here -->
-        <!-- route outlet -->
-        <router-view></router-view>
-      </section>
-      <!-- /.content -->
+        <!-- Main content -->
+        <section class="content">
+          <!-- Your Page Content Here -->
+          <!-- route outlet -->
+          <router-view></router-view>
+        </section>
+        <!-- /.content -->
+      </div>
     </div>
   </div>
 </template>
@@ -35,7 +37,6 @@ export default {
   components: {
     Navbar,
     Sidebar
-  },
-  replace: false
+  }
 }
 </script>

@@ -10,49 +10,59 @@ Vue.use(VueResource)
 
 /* eslint-disable no-new */
 
-var router = new VueRouter({
-    history: true,
-    root: 'dashboard'
+const routes = [
+  {
+    path: '/',
+    name: 'home',
+    component: require('./components/Home.vue')
+  },
+  {
+    path: '/posts/',
+    name: 'posts',
+    component: require('./components/Posts.vue')
+  },
+  {
+    path: '/posts/categories/:hashid',
+    name: 'postincats',
+    component: require('./components/Posts.vue')
+  },
+  {
+    path: '/posts/:hashid/edit',
+    alias:'/posts/:hashid',
+    name: 'editpost',
+    component: require('./components/Editpost.vue')
+  },
+  {
+    path: '/users',
+    name: 'users',
+    component: require('./components/Users.vue')
+  },
+  {
+    path: '/categories',
+    component: require('./components/Categories.vue')
+  },
+  {
+    path: '/categories/:hashid/edit',
+    alias: 'categories/:hashid',
+    name: 'categories',
+    component: require('./components/Editcategory.vue')
+  },
+  {
+    path: '/profile',
+    component: require('./components/Profile.vue')
+  }
+]
+
+const router = new VueRouter({
+  mode: 'history',
+  base: 'dashboard',
+  routes
 })
 
-
-router.map({
-    '/': {
-        component: require('./components/Home.vue')
-    },
-    '/posts/': {
-        name: 'posts',
-        component: require('./components/Posts.vue')
-    },
-    '/posts/categories/:hashid': {
-        name: 'postincats',
-        component: require('./components/Posts.vue')
-    },
-    '/posts/:hashid/edit': {
-        name: 'editpost',
-        component: require('./components/Editpost.vue')
-    },
-    '/users': {
-        component: require('./components/Users.vue')
-    },
-    '/categories': {
-        component: require('./components/Categories.vue')
-    },
-    '/categories/:hashid/edit': {
-        name: 'categories',
-        component: require('./components/Editcategory.vue')
-    },
-    '/profile': {
-        component: require('./components/Profile.vue')
-    },
-})
-
-router.alias({
-
-    // alias can contain dynamic segments
-    // the dynamic segment names must match
-    '/posts/:hashid': '/posts/:hashid/edit',
-    'categories/:hashid': '/categories/:hashid/edit'
-})
-
-router.start(App, 'body')
+new Vue(Vue.util.extend({ router }, App)).$mount('#app');
+// const app = new Vue({
+//   // el: '#app',
+//   router,
+//   // render: h => h(App)
+//   // template: `<app>HI</app>`
+// }).$mount('#app')

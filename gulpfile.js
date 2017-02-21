@@ -1,9 +1,11 @@
 var elixir = require('laravel-elixir');
-elixir.config.js.browserify.watchify.options.poll = true;
+// elixir.config.js.browserify.watchify.options.poll = true;
 
 // elixir.config.js.browserify.transformers.push({
 //     name: 'vueify'
 // });
+// require('laravel-elixir-vue-2');
+require('laravel-elixir-browserify-official');
 require('laravel-elixir-vueify');
 require('laravel-elixir-livereload');
 
@@ -20,7 +22,7 @@ require('laravel-elixir-livereload');
 
 elixir(function(mix) {
     mix.less('../themes/clean-blog/clean-blog.less')
-    
+
     mix.browserify('main.js')
     mix.browserify('theme.js')
     mix.version(['public/js/main.js', 'public/js/theme.js']);

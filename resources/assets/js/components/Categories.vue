@@ -22,12 +22,12 @@
               <td>{{category.icon}}</td>
               <td class="col-sm-3">
                 <div class="btn-group">
-                    <button type="button" v-link="{ name: 'postincats', params: {hashid: category.hashid}}" class="btn btn-success">
-                      View posts
-                    </button>
-                    <button type="button" v-link="{ name: 'categories', params: {hashid: category.hashid}}" class="btn btn-warning">
-                      Edit
-                    </button>
+                  <router-link :to="{ name: 'postincats', params: { storyId: category.hashid }}" tag="button" class="btn btn-success">
+                    View posts
+                  </router-link>
+                  <router-link :to="{ name: 'categories', params: { storyId: category.hashid }}" tag="button" class="btn btn-warning">
+                    Edit
+                  </router-link>
                     <button class="btn btn-danger" @click="deleteCategory(category)">Delete</button>
                 </div>
               </td>
@@ -46,7 +46,7 @@
 import { stack_bottomright, show_stack_success, show_stack_error, show_stack_info } from '../Pnotice.js'
 
 export default {
-  ready () {
+  mounted () {
     this.fetchCategories()
   },
   data () {
@@ -63,7 +63,7 @@ export default {
     createCategory () {
       this.$http({url: '/api/categories', method: 'POST'}).then(function (response) {
         show_stack_info('Creating Category...', response)
-        this.$router.go('/categories/'  + response.data.hashid + '/edit')
+        this.$router.push('/categories/'  + response.data.hashid + '/edit')
       })
     },
     deleteCategory (category) {
@@ -76,7 +76,8 @@ export default {
         confirmButtonText: 'Yes, delete it!',
         cancelButtonText: 'No, keep it',
       }).then(function() {
-        self.categories.$remove(category)
+        // self.categories.$remove(category)
+        var index = self.categories.indexOf(category); self.categories.splice(index, 1)
         self.$http.delete('/api/categories/' + category.hashid, category).then(function (response) {
           swal(
             'Deleted!',

@@ -47,8 +47,10 @@
               </td>
               <td class="col-md-3">
                 <div class="btn-group">
-                  <a v-if="post.status == 'approved'" href="/blog/{{post.slug}}" target="blank"  class="btn btn-success" role="button">View</a>
-                  <button v-link="{ name: 'editpost', params: {hashid: post.hashid}}" type="button" class="btn btn-info">Edit</button>
+                  <a v-if="post.status == 'approved'" v-bind:href="'/blog/' + post.slug" target="blank"  class="btn btn-success" role="button">View</a>
+                  <router-link :to="{ name: 'editpost', params: { storyId: post.hashid }}" tag="button" class="btn btn-info">
+                    Edit
+                  </router-link>
                   <button type="button" class="btn btn-danger" @click="deletePost(post)">Delete</button>
                 </div>
               </td>
@@ -61,7 +63,8 @@
             </tr>
           </table>
           <div>
-            <v-paginator :resource.sync="posts" :resource_url="resource_url" :options="options"></v-paginator>
+            <!-- <v-paginator :resource.sync="posts" :resource_url="resource_url" :options="options"></v-paginator> -->
+            <v-paginator :resource_url="resource_url" ref="vpaginator" @update="updateResource"></v-paginator>
           </div>
         </div>
         <!-- /.box-body -->
@@ -85,7 +88,7 @@ export default {
   created () {
     this.categoryId = this.$route.params.hashid
   },
-  ready () {
+  mounted () {
    this.fetchCategories()
   },
   data () {
@@ -118,7 +121,8 @@ export default {
         confirmButtonText: 'Yes, delete it!',
         cancelButtonText: 'No, keep it',
       }).then(function() {
-        self.posts.$remove(post)
+        // self.posts.$remove(post)
+        var index = self.posts.indexOf(post); self.posts.splice(index, 1)
         self.$http.delete('/api/posts/' + post.hashid, post).then(function (response) {
           swal(
             'Deleted!',
@@ -142,11 +146,14 @@ export default {
     createPost () {
       this.$http({url: '/api/posts', method: 'POST'}).then(function (response) {
         show_stack_info('Created', response)
-        this.$router.go('/posts/'  + response.data.hashid + '/edit')
+        this.$router.push('/posts/'  + response.data.hashid + '/edit')
       })
     },
     refresh () {
       location.reload();
+    },
+    updateResource(data){
+      this.posts = data
     }
   },
   computed: {

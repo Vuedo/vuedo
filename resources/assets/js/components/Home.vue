@@ -1,4 +1,5 @@
 <template>
+  <div>
   <div class="row">
     <div class="col-md-3 col-sm-6 col-xs-12">
       <div class="info-box">
@@ -43,11 +44,12 @@
       </div>
     </div>
   </div>
+</div>
 </template>
 
 <script>
 export default {
-  ready () {
+  mounted () {
    this.fetchPosts()
    this.fetchCategories()
   },
