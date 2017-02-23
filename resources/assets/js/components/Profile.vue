@@ -56,7 +56,7 @@
 import { stack_bottomright, show_stack_success, show_stack_error } from '../Pnotice.js'
 
 export default {
-  created() {
+  created () {
     this.fetchUser()
   },
   data () {
@@ -76,7 +76,7 @@ export default {
   methods: {
     fetchUser () {
       this.$http({url: '/api/me', method: 'GET'}).then(function (response) {
-        this.$set('user', response.data)
+        Vue.set('user', response.data)
       })
     },
     updateUser (user) {

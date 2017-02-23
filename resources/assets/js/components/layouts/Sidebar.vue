@@ -44,7 +44,7 @@
 
 <script>
 import { stack_bottomright, show_stack_success, show_stack_error, show_stack_info } from '../../Pnotice.js'
-
+import Vue from 'vue'
 export default {
   created () {
     this.fetchUser()
@@ -61,8 +61,8 @@ export default {
   },
   methods: {
     fetchUser () {
-      this.$http({url: '/api/me', method: 'GET'}).then(function (response) {
-        this.$set('user', response.data)
+      this.$http({url: '/api/me', method: 'GET'}).then(response =>{
+        Vue.set(this, 'user', response.data)
       })
     },
     createPost () {

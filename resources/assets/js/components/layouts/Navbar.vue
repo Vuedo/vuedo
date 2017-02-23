@@ -59,6 +59,7 @@
 </template>
 
 <script>
+import Vue from 'vue'
 
 export default {
   created() {
@@ -71,8 +72,8 @@ export default {
   },
   methods: {
     fetchUser () {
-      this.$http({url: '/api/me', method: 'GET'}).then(function (response) {
-        this.$set('user', response.data)
+      this.$http({url: '/api/me', method: 'GET'}).then(response => {
+        Vue.set(this, 'user', response.data)
       })
     },
     logout () {

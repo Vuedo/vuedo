@@ -43,6 +43,7 @@
 </template>
 
 <script>
+import Vue from 'vue'
 import { stack_bottomright, show_stack_success, show_stack_error, show_stack_info } from '../Pnotice.js'
 
 export default {
@@ -56,8 +57,8 @@ export default {
   },
   methods: {
     fetchCategories () {
-      this.$http({url: '/api/categories/', method: 'GET'}).then(function (response) {
-        this.$set('categories', response.data.data)
+      this.$http({url: '/api/categories/', method: 'GET'}).then(response => {
+        Vue.set(this, 'categories', response.data.data)
       })
     },
     createCategory () {

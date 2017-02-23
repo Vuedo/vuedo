@@ -63,9 +63,10 @@
 </div>
 </template>
 <script>
+import Vue from 'vue'
 import SimpleMDE from 'simplemde'
 import Dropzone from './Dropzone.vue'
-import Multiselect from 'vue-multiselect/lib/vue-multiselect.js'
+import Multiselect from 'vue-multiselect'
 import {stack_bottomright, show_stack_success, show_stack_error} from '../Pnotice.js'
 
 export default {
@@ -102,16 +103,16 @@ export default {
             this.$http({
                 url: '/api/posts/' + this.postId + '?include=categories',
                 method: 'GET'
-            }).then(function (response) {
-                this.$set('post', response.data)
-                this.simplemde.value(this.post.content);
-                this.$set('values', response.data.categories.data)
+            }).then(response => {
+                Vue.set(this, 'post', response.data)
+                Vue.simplemde.value(this.post.content);
+                Vue.set(this, 'values', response.data.categories.data)
             })
         },
         updatePost (post) {
             post.content = this.simplemde.value()
             return new Promise((resolve, reject) => {
-                this.$http.patch('/api/posts/' + post.hashid, post).then((response) => {
+                this.$http.patch('/api/posts/' + post.hashid, post).then(response => {
                     show_stack_success('Post saved!', response)
                     resolve()
                 }, function (response) {
@@ -158,8 +159,8 @@ export default {
             }
         },
         fetchCatetgories () {
-            this.$http({url: '/api/categories', method: 'GET'}).then(function (response) {
-                this.$set('options2', response.data.data)
+            this.$http({url: '/api/categories', method: 'GET'}).then(response => {
+                Vue.set(this, 'options2', response.data.data)
             })
         },
         onChangeAction (value) {

@@ -48,6 +48,8 @@
 </template>
 
 <script>
+import Vue from 'vue'
+
 export default {
   mounted () {
    this.fetchPosts()
@@ -61,13 +63,13 @@ export default {
   },
   methods: {
     fetchPosts () {
-      this.$http({url: '/api/posts', method: 'GET'}).then(function (response) {
-        this.$set('posts', response.data.data)
+      this.$http({url: '/api/posts', method: 'GET'}).then(response => {
+        Vue.set(this, 'posts', response.data.data)
       })
     },
     fetchCategories() {
-      this.$http({url: '/api/categories', method: 'GET'}).then(function (response) {
-        this.$set('categories', response.data.data)
+      this.$http({url: '/api/categories', method: 'GET'}).then(response => {
+        Vue.set(this, 'categories', response.data.data)
       })
     },
   }

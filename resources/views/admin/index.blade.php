@@ -24,6 +24,9 @@
 
 </head>
 <body class="skin-blue sidebar-mini">
+  <div id="dik">
+
+  </div>
 <script>
     {{--TODO: Remove else when check is done with middleware--}}
     @if(Auth::user())
@@ -56,4 +59,3 @@
 @endif
 </body>
 </html>
-

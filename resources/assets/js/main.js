@@ -59,10 +59,9 @@ const router = new VueRouter({
   routes
 })
 
-new Vue(Vue.util.extend({ router }, App)).$mount('#app');
-// const app = new Vue({
-//   // el: '#app',
-//   router,
-//   // render: h => h(App)
-//   // template: `<app>HI</app>`
-// }).$mount('#app')
+const app = new Vue({
+  el: '#dik',
+  router,
+  render: h => h(App)
+  // template: `<app>HI</app>`
+})
