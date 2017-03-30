@@ -1,5 +1,12 @@
 import Vue from 'vue'
 import App from './App.vue'
+import Home from './components/Home.vue'
+import Posts from './components/Posts.vue'
+import Editpost from './components/Editpost.vue'
+import Categories from './components/Categories.vue'
+import Editcategory from './components/Editcategory.vue'
+import Users from './components/Users.vue'
+import Profile from './components/Profile.vue'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
 
@@ -14,42 +21,42 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: require('./components/Home.vue')
+    component: Home
   },
   {
     path: '/posts/',
     name: 'posts',
-    component: require('./components/Posts.vue')
+    component: Posts
   },
   {
     path: '/posts/categories/:hashid',
     name: 'postincats',
-    component: require('./components/Posts.vue')
+    component: Posts
   },
   {
     path: '/posts/:hashid/edit',
     alias:'/posts/:hashid',
     name: 'editpost',
-    component: require('./components/Editpost.vue')
-  },
-  {
-    path: '/users',
-    name: 'users',
-    component: require('./components/Users.vue')
+    component: Editpost
   },
   {
     path: '/categories',
-    component: require('./components/Categories.vue')
+    component: Categories
   },
   {
     path: '/categories/:hashid/edit',
     alias: 'categories/:hashid',
     name: 'categories',
-    component: require('./components/Editcategory.vue')
+    component: Editcategory
+  },
+  {
+    path: '/users',
+    name: 'users',
+    component: Users
   },
   {
     path: '/profile',
-    component: require('./components/Profile.vue')
+    component: Profile
   }
 ]
 

@@ -77,13 +77,13 @@
 
 <script>
 import Vue from 'vue'
-// import VuePaginator from 'vuejs-paginator/dist/vuejs-paginator.js'
+import VuePaginator from 'vuejs-paginator/dist/vuejs-paginator.min.js'
 import Multiselect from 'vue-multiselect'
 import { stack_bottomright, show_stack_success, show_stack_error, show_stack_info } from '../Pnotice.js'
 
 export default {
   components: {
-    // VPaginator: VuePaginator,
+    VPaginator: VuePaginator,
     Multiselect
   },
   created () {
@@ -94,16 +94,16 @@ export default {
   },
   data () {
     return {
-      // options: {
-      //   remote_data: 'data',
-      //   remote_current_page: 'meta.pagination.current_page',
-      //   remote_last_page: 'meta.pagination.total_pages',
-      //   remote_next_page_url: 'meta.pagination.links.next',
-      //   remote_prev_page_url: 'meta.pagination.links.previous'
-      // },
+      options: {
+        remote_data: 'data',
+        remote_current_page: 'meta.pagination.current_page',
+        remote_last_page: 'meta.pagination.total_pages',
+        remote_next_page_url: 'meta.pagination.links.next',
+        remote_prev_page_url: 'meta.pagination.links.previous'
+      },
       posts: [],
       options2: [],
-      categoryId: '',
+      categoryId: ''
     }
   },
   methods: {

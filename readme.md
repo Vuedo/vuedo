@@ -1,9 +1,12 @@
+
 # Vuedo ![logo](http://i.imgur.com/iBEAx7O.png?2)
 [![Build Status](https://travis-ci.org/Vuedo/vuedo.svg?branch=master)](https://travis-ci.org/Vuedo/vuedo) [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](LICENSE) [![Join the chat at https://gitter.im/vuedo/Lobby](https://badges.gitter.im/vuedo/Lobby.svg)](https://gitter.im/vuedo/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ## What is Vuedo?
 
 Vuedo is an open source project built with Laravel and Vue.js. It is a live example of how everything works together.
+
+Interested in more theory? Here is the [official announcement](https://dotdev.co/announcing-vuedo-an-open-source-project-built-with-laravel-and-vue-js-84f371409401).
 
 ## Website using Vuedo in production : [https://vuejsfeed.com/](https://vuejsfeed.com/)
 
