@@ -24,8 +24,8 @@
                       <div class="form-group">
                         <label for="categories" class="col-sm-1 control-label">Select categories</label>
                         <div class="col-sm-11">
-                            <multiselect :selected.sync="post.categories.data" :options="options2" :multiple="true"
-                            key="hashid" label="name" :on-change="onChangeAction"
+                            <multiselect v-model="post.categories.data" :options="options2" :multiple="true"
+                            key="hashid" label="name" @input="onChangeAction"
                             >
 
                             </multiselect>
@@ -95,7 +95,7 @@ export default {
             postId: '',
             simplemde: '',
             options2: [],
-            values: []
+            value: []
         }
     },
     methods: {
@@ -106,7 +106,7 @@ export default {
             }).then(response => {
                 Vue.set(this, 'post', response.data)
                 Vue.simplemde.value(this.post.content);
-                Vue.set(this, 'values', response.data.categories.data)
+                Vue.set(this, 'value', response.data.categories.data)
             })
         },
         updatePost (post) {
@@ -164,7 +164,7 @@ export default {
             })
         },
         onChangeAction (value) {
-            this.values = value
+            this.value = value
             this.$http.patch('/api/posts/' + this.postId + '/categories', {categories: value}).then((response) => {
                 show_stack_success('Categories updated!', response)
             }, function (response) {

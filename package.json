@@ -48,7 +48,7 @@
     "dropzone": "^4.3.0",
     "laravel-elixir": "^6.0.0-15",
     "simplemde": "^1.11.2",
-    "vue-multiselect": "^2.0.0-beta.13",
+    "vue-multiselect": "^2.0.0-beta.15",
     "vuejs-paginator": "^2.0.0"
   },
   "aliasify": {
