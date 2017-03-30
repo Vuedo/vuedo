@@ -48,7 +48,7 @@
               <td class="col-md-3">
                 <div class="btn-group">
                   <a v-if="post.status == 'approved'" v-bind:href="'/blog/' + post.slug" target="blank"  class="btn btn-success" role="button">View</a>
-                  <router-link :to="{ name: 'editpost', params: { storyId: post.hashid }}" tag="button" class="btn btn-info">
+                  <router-link :to="{ name: 'editpost', params: { hashid: post.hashid }}" tag="button" class="btn btn-info">
                     Edit
                   </router-link>
                   <button type="button" class="btn btn-danger" @click="deletePost(post)">Delete</button>
@@ -94,13 +94,13 @@ export default {
   },
   data () {
     return {
-      options: {
-        remote_data: 'data',
-        remote_current_page: 'meta.pagination.current_page',
-        remote_last_page: 'meta.pagination.total_pages',
-        remote_next_page_url: 'meta.pagination.links.next',
-        remote_prev_page_url: 'meta.pagination.links.previous'
-      },
+      // options: {
+      //   remote_data: 'data',
+      //   remote_current_page: 'meta.pagination.current_page',
+      //   remote_last_page: 'meta.pagination.total_pages',
+      //   remote_next_page_url: 'meta.pagination.links.next',
+      //   remote_prev_page_url: 'meta.pagination.links.previous'
+      // },
       posts: [],
       options2: [],
       categoryId: ''
