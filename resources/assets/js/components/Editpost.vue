@@ -105,7 +105,7 @@ export default {
                 method: 'GET'
             }).then(response => {
                 Vue.set(this, 'post', response.data)
-                Vue.simplemde.value(this.post.content);
+                this.simplemde.value(this.post.content)
                 Vue.set(this, 'value', response.data.categories.data)
             })
         },
