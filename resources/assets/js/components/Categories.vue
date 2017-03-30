@@ -9,23 +9,24 @@
           <h3 class="box-title">All Categories</h3>
         </div>
         <!-- /.box-header -->
-        <div class="box-body table-responsive no-padding">
-          <table class="table table-hover">
+        <div class="box-body table-responsive">
+          <table class="table table-striped">
             <tr>
-              <th>Category Name</th>
-              <th>Icon</th>
+              <th class="col-md-4">Category Name</th>
+              <th class="col-md-4">Icon</th>
+              <th class="col-md-4">Actions</th>
             </tr>
             <tr v-for="category in categories">
-              <td>
+              <td class="col-md-4">
                 {{category.name}}
               </td>
-              <td>{{category.icon}}</td>
-              <td class="col-sm-3">
+              <td class="col-md-4">{{category.icon}}</td>
+              <td class="col-md-sm-4">
                 <div class="btn-group">
-                  <router-link :to="{ name: 'postincats', params: { storyId: category.hashid }}" tag="button" class="btn btn-success">
+                  <router-link :to="{ name: 'postincats', params: { hashid: category.hashid }}" tag="button" class="btn btn-success">
                     View posts
                   </router-link>
-                  <router-link :to="{ name: 'categories', params: { storyId: category.hashid }}" tag="button" class="btn btn-warning">
+                  <router-link :to="{ name: 'categories', params: { hashid: category.hashid }}" tag="button" class="btn btn-warning">
                     Edit
                   </router-link>
                     <button class="btn btn-danger" @click="deleteCategory(category)">Delete</button>
