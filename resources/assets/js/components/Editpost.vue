@@ -122,7 +122,7 @@ export default {
             })
         },
         publishPost (post) {
-            if (this.values === undefined || this.values == 0) {
+            if (this.value === undefined || this.value == 0) {
                 swal('Sorry', 'Please add a category before publishing this post!', 'info')
             } else {
                 let self = this
