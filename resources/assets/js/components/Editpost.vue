@@ -70,6 +70,7 @@ import Multiselect from 'vue-multiselect'
 import {stack_bottomright, show_stack_success, show_stack_error} from '../Pnotice.js'
 
 export default {
+    name: 'editpost',
     created () {
         this.postId = this.$route.params.hashid
         this.fetchPost()
