@@ -15,7 +15,7 @@
           <h3 class="box-title">All posts</h3>
         </div>
         <!-- /.box-header -->
-        <div class="box-body table-responsive no-padding">
+        <div class="box-body table-responsive">
           <table class="table table-hover">
             <tr>
               <th>ID</th>
@@ -64,7 +64,7 @@
           </table>
           <div>
             <!-- <v-paginator :resource.sync="posts" :resource_url="resource_url" :options="options"></v-paginator> -->
-            <v-paginator :resource_url="resource_url" ref="vpaginator" @update="updateResource"></v-paginator>
+            <v-paginator :resource_url="resource_url" ref="vpaginator" @update="updateResource" :options="options"></v-paginator>
           </div>
         </div>
         <!-- /.box-body -->
@@ -94,13 +94,13 @@ export default {
   },
   data () {
     return {
-      // options: {
-      //   remote_data: 'data',
-      //   remote_current_page: 'meta.pagination.current_page',
-      //   remote_last_page: 'meta.pagination.total_pages',
-      //   remote_next_page_url: 'meta.pagination.links.next',
-      //   remote_prev_page_url: 'meta.pagination.links.previous'
-      // },
+      options: {
+        remote_data: 'data',
+        remote_current_page: 'meta.pagination.current_page',
+        remote_last_page: 'meta.pagination.total_pages',
+        remote_next_page_url: 'meta.pagination.links.next',
+        remote_prev_page_url: 'meta.pagination.links.previous'
+      },
       posts: [],
       options2: [],
       categoryId: ''
