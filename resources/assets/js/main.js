@@ -8,12 +8,14 @@ import Editcategory from './components/Editcategory.vue'
 import Users from './components/Users.vue'
 import Profile from './components/Profile.vue'
 import VueRouter from 'vue-router'
-import VueResource from 'vue-resource'
+import axios from 'axios'
 
+Vue.prototype.$http = axios
 
 Vue.use(VueRouter)
 
-Vue.use(VueResource)
+// produces error
+Vue.use(axios)
 
 /* eslint-disable no-new */
 
