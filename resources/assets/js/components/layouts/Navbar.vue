@@ -73,12 +73,12 @@ export default {
   },
   methods: {
     fetchUser () {
-      this.$http({url: '/api/me', method: 'GET'}).then(response => {
+      axios.get('/api/me').then(response => {
         Vue.set(this, 'user', response.data)
       })
     },
     logout () {
-      this.$http({url: 'logout', method: 'GET'}).then(function (response) {
+      axios.get('logout').then(function (response) {
         window.location.assign('/logout')
       })
     },

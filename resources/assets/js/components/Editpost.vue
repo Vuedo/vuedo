@@ -110,10 +110,8 @@ export default {
     },
     methods: {
         fetchPost () {
-            this.$http({
-                url: '/api/posts/' + this.postId + '?include=categories',
-                method: 'GET'
-            }).then(response => {
+            axios.get('/api/posts/' + this.postId + '?include=categories')
+            .then(response => {
                 Vue.set(this, 'post', response.data)
                 this.simplemde.value(this.post.content)
                 Vue.set(this, 'value', response.data.categories.data)
@@ -122,7 +120,7 @@ export default {
         updatePost (post) {
             post.content = this.simplemde.value()
             return new Promise((resolve, reject) => {
-                this.$http.patch('/api/posts/' + post.hashid, post).then(response => {
+                axios.patch('/api/posts/' + post.hashid, post).then(response => {
                     show_stack_success('Post saved!', response)
                     resolve()
                 }, function (response) {
@@ -145,7 +143,7 @@ export default {
                     cancelButtonText: 'No, not yet.',
                 }).then(function () {
                     self.updatePost(post).then(() => {
-                        self.$http.post('/api/posts/' + post.hashid + '/publish', post).then(function (response) {
+                        axios.post('/api/posts/' + post.hashid + '/publish', post).then(function (response) {
                             swal(
                                     'Published!',
                                     'Your post has been published to the world!.',
@@ -169,13 +167,13 @@ export default {
             }
         },
         fetchCatetgories () {
-            this.$http({url: '/api/categories', method: 'GET'}).then(response => {
+            axios.get('/api/categories').then(response => {
                 Vue.set(this, 'options2', response.data.data)
             })
         },
         onChangeAction (value) {
             this.value = value
-            this.$http.patch('/api/posts/' + this.postId + '/categories', {categories: value}).then((response) => {
+            axios.patch('/api/posts/' + this.postId + '/categories', {categories: value}).then((response) => {
                 show_stack_success('Categories updated!', response)
             }, function (response) {
                 show_stack_error('Failed update categories!', response)
@@ -191,7 +189,7 @@ export default {
                 confirmButtonText: 'Yes, delete it!',
                 cancelButtonText: 'No, keep it',
             }).then(function () {
-                self.$http.delete('/api/posts/' + post.hashid, post).then(function (response) {
+                axios.delete('/api/posts/' + post.hashid, post).then(function (response) {
                     self.$router.push('/posts')
                     swal(
                             'Deleted!',

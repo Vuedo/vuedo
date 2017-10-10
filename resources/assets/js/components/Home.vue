@@ -64,12 +64,12 @@ export default {
   },
   methods: {
     fetchPosts () {
-      this.$http({url: '/api/posts', method: 'GET'}).then(response => {
+      axios.get('/api/posts').then(response => {
         Vue.set(this, 'posts', response.data.data)
       })
     },
     fetchCategories() {
-      this.$http({url: '/api/categories', method: 'GET'}).then(response => {
+      axios.get('/api/categories').then(response => {
         Vue.set(this, 'categories', response.data.data)
       })
     },

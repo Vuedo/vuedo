@@ -109,7 +109,7 @@ export default {
   },
   methods: {
     fetchCategories () {
-      this.$http({url: '/api/categories', method: 'GET'}).then(response => {
+      axios.get('/api/categories').then(response => {
         Vue.set(this, 'options2', response.data.data)
       })
     },
@@ -125,7 +125,7 @@ export default {
       }).then(function() {
         // self.posts.$remove(post)
         var index = self.posts.indexOf(post); self.posts.splice(index, 1)
-        self.$http.delete('/api/posts/' + post.hashid, post).then(function (response) {
+        axios.delete('/api/posts/' + post.hashid, post).then(function (response) {
           swal(
             'Deleted!',
             'Your post has been deleted.',
@@ -146,7 +146,7 @@ export default {
       });
     },
     createPost () {
-      this.$http({url: '/api/posts', method: 'POST'}).then(function (response) {
+      axios.get('/api/posts').then(function (response) {
         show_stack_info('Created', response)
         this.$router.push('/posts/'  + response.data.hashid + '/edit')
       })

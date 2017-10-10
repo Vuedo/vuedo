@@ -63,13 +63,13 @@ export default {
   },
   methods: {
     fetchUser () {
-      this.$http({url: '/api/me', method: 'GET'}).then(response =>{
+      axios.get('/api/me').then(response =>{
         Vue.set(this, 'user', response.data)
       })
     },
     createPost () {
       if( !this.creatingPost ){
-        this.$http({url: '/api/posts', method: 'POST'}).then(function (response) {
+        axios.post('/api/posts').then(function (response) {
           show_stack_info('Creating post...', response)
           this.$router.push('/posts/'  + response.data.hashid + '/edit')
         }, function (response){
