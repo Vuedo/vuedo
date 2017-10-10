@@ -58,6 +58,7 @@ import Dropzone from 'dropzone'
 import Vue from 'vue'
 
 export default{
+  name: 'DropZone',
   props: {
     model: {required: true},
     action: {required: true},

@@ -36,6 +36,7 @@
 
 <script>
 export default {
+  name: 'UsersList',
   data () {
     return {
       // note: changing this line won't causes changes

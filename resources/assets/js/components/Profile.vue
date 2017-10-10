@@ -56,6 +56,7 @@
 import { stack_bottomright, show_stack_success, show_stack_error } from '../Pnotice.js'
 
 export default {
+  name: 'ProfilePage',
   created () {
     this.fetchUser()
   },

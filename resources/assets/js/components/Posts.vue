@@ -82,6 +82,7 @@ import Multiselect from 'vue-multiselect'
 import { stack_bottomright, show_stack_success, show_stack_error, show_stack_info } from '../Pnotice.js'
 
 export default {
+  name: 'PostsList',
   components: {
     VPaginator: VuePaginator,
     Multiselect

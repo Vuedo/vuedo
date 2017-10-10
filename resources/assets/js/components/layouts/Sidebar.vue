@@ -45,7 +45,9 @@
 <script>
 import { stack_bottomright, show_stack_success, show_stack_error, show_stack_info } from '../../Pnotice.js'
 import Vue from 'vue'
+
 export default {
+  name: 'SideItem',
   created () {
     this.fetchUser()
   },

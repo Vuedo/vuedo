@@ -48,6 +48,7 @@ import Vue from 'vue'
 import { stack_bottomright, show_stack_success, show_stack_error, show_stack_info } from '../Pnotice.js'
 
 export default {
+  name: 'CategList',
   mounted () {
     this.fetchCategories()
   },
