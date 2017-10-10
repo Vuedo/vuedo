@@ -23,6 +23,8 @@
     <link rel="stylesheet" href="/lte/css/skin-blue.min.css">
     <!-- vue-multiselect styles - change to import -->
     <link rel="stylesheet" href="https://unpkg.com/vue-multiselect@2.0.0/dist/vue-multiselect.min.css">
+    <!-- axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 </head>
 <body class="skin-blue sidebar-mini">
