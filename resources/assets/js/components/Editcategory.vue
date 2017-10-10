@@ -36,13 +36,13 @@ import { stack_bottomright, show_stack_success, show_stack_error } from '../Pnot
 
 export default {
   name: 'EditCategory',
-  mounted () {
-    this.fetchCategory()
-  },
   data () {
     return {
       category: {}
     }
+  },
+  mounted () {
+    this.fetchCategory()
   },
   methods: {
     fetchCategory () {

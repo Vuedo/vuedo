@@ -31,8 +31,6 @@
 import Navbar from './components/layouts/Navbar.vue'
 import Sidebar from './components/layouts/Sidebar.vue'
 
-
-
 export default {
   name: 'app',
   components: {

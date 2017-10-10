@@ -71,14 +71,23 @@ import {stack_bottomright, show_stack_success, show_stack_error} from '../Pnotic
 
 export default {
     name: 'EditPost',
+    components: {
+      Dropzone,
+      Multiselect
+    },
+    computed: {
+      isPublished: function () {
+        if (this.post.status !== 'approved') {
+          return true
+        } else {
+          return false
+        }
+      }
+    },
     created () {
         this.postId = this.$route.params.hashid
         this.fetchPost()
         this.fetchCatetgories()
-    },
-    components: {
-        Dropzone,
-        Multiselect
     },
     mounted () {
         this.simplemde = new SimpleMDE({
@@ -202,15 +211,6 @@ export default {
                     );
                 }
             });
-        }
-    },
-    computed: {
-        isPublished: function () {
-            if (this.post.status !== 'approved') {
-                return true
-            } else {
-                return false
-            }
         }
     }
 }

@@ -60,8 +60,14 @@ import Vue from 'vue'
 export default{
   name: 'DropZone',
   props: {
-    model: {required: true},
-    action: {required: true},
+    model: {
+      type: String,
+      required: true
+    },
+    action: {
+      type: String,
+      required: true
+    },
   },
   mounted () {
     let component = this
@@ -125,5 +131,5 @@ export default{
   }
 }
 </script>
-<style>
+<style scoped>
 </style>
