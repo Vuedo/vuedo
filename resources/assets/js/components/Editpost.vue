@@ -4,7 +4,7 @@
 <section class="content">
     <div class="row">
         <div class="col-md-12">
-          <a v-if="post.status == 'approved'" v-bind:href="'/blog/' + post.slug" target="blank"  class="btn btn-lg btn-flat btn-success" role="button" style="margin-bottom: 15px;">
+          <a v-if="post.status == 'approved'" :href="'/blog/' + post.slug" target="blank"  class="btn btn-lg btn-flat btn-success" role="button" style="margin-bottom: 15px;">
             View Post
           </a>
             <div class="box box-info">

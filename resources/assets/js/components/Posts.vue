@@ -47,7 +47,7 @@
               </td>
               <td class="col-md-3">
                 <div class="btn-group">
-                  <a v-if="post.status == 'approved'" v-bind:href="'/blog/' + post.slug" target="blank"  class="btn btn-success" role="button">View</a>
+                  <a v-if="post.status == 'approved'" :href="'/blog/' + post.slug" target="blank"  class="btn btn-success" role="button">View</a>
                   <router-link :to="{ name: 'editpost', params: { hashid: post.hashid }}" tag="button" class="btn btn-info">
                     Edit
                   </router-link>
