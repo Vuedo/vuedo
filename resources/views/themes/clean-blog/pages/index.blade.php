@@ -10,7 +10,7 @@
                     <div class="site-heading">
                         <h1>Vuedo</h1>
                         <hr class="small">
-                        <span class="subheading">A Clean Blog Theme by Start Bootstrap</span>
+                        <span class="subheading">Vuedo is a blog platform, built with Laravel and Vue.js. </span>
                     </div>
                 </div>
             </div>
