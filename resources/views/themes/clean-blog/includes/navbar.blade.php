@@ -18,6 +18,15 @@
                         <a href="{{route('web.category', $category->name)}}">{{$category->name}}</a>
                     </li>
                 @endforeach
+                @if(Auth::user())
+                <li>
+                  <a href="/dashboard">Dashboard</a>
+                </li>
+                @else
+                <li>
+                    <a href="/login">Log In</a>
+                </li>
+                @endif
             </ul>
         </div>
         <!-- /.navbar-collapse -->
