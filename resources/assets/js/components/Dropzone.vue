@@ -61,7 +61,6 @@ export default{
   name: 'DropZone',
   props: {
     model: {
-      type: String,
       required: true
     },
     action: {
