@@ -3,6 +3,9 @@
     "prod": "gulp --production",
     "dev": "gulp watch"
   },
+  "browser": {
+     "vue": "vue/dist/vue.common.js"
+   },
   "devDependencies": {
     "aliasify": "^2.1.0",
     "babel-core": "^6.26.0",
