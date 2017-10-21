@@ -10,11 +10,9 @@ import Profile from './components/Profile.vue'
 import VueRouter from 'vue-router'
 import axios from 'axios'
 Vue.use(VueRouter)
+
 Vue.prototype.$http = axios
 
-
-// produces error
-// Vue.use(axios)
 
 /* eslint-disable no-new */
 
@@ -68,8 +66,7 @@ const router = new VueRouter({
 })
 
 const app = new Vue({
-  el: '#dik',
+  el: '#dashboard',
   router,
   render: h => h(App)
-  // template: `<app>HI</app>`
 })

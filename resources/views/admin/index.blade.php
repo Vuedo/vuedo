@@ -21,14 +21,14 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="/lte/css/AdminLTE.css">
     <link rel="stylesheet" href="/lte/css/skin-blue.min.css">
-    <!-- vue-multiselect styles - change to import -->
+    <!-- vue-multiselect styles -->
     <link rel="stylesheet" href="https://unpkg.com/vue-multiselect@2.0.0/dist/vue-multiselect.min.css">
     <!-- axios -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 </head>
 <body class="skin-blue sidebar-mini">
-  <div id="dik">
+  <div id="dashboard">
 
   </div>
 <script>
