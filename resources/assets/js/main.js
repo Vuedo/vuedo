@@ -8,7 +8,8 @@ import Editcategory from './components/Editcategory.vue'
 import Users from './components/Users.vue'
 import Profile from './components/Profile.vue'
 import VueRouter from 'vue-router'
-import axios from 'axios'
+window.axios = require('axios')
+
 Vue.use(VueRouter)
 
 Vue.prototype.$http = axios
