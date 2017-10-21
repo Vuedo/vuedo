@@ -64,7 +64,7 @@
           </table>
           <div>
             <!-- <v-paginator :resource.sync="posts" :resource_url="resource_url" :options="options"></v-paginator> -->
-            <v-paginator :resource_url="resource_url" ref="vpaginator" @update="updateResource" :options="options"></v-paginator>
+            <VuePaginator :resource_url="resource_url" ref="vpaginator" @update="updateResource" :options="options"/>
           </div>
         </div>
         <!-- /.box-body -->
@@ -84,7 +84,7 @@ import { stack_bottomright, show_stack_success, show_stack_error, show_stack_inf
 export default {
   name: 'PostsList',
   components: {
-    VPaginator: VuePaginator,
+    VuePaginator,
     Multiselect
   },
   created () {
@@ -146,7 +146,7 @@ export default {
       });
     },
     createPost () {
-      axios.get('/api/posts').then(function (response) {
+      axios.post('/api/posts').then(response => {
         show_stack_info('Created', response)
         this.$router.push('/posts/'  + response.data.hashid + '/edit')
       })
@@ -173,6 +173,6 @@ export default {
         }
       }
     }
-  },
+  }
 }
 </script>
