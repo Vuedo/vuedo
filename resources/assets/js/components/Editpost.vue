@@ -112,9 +112,9 @@ export default {
         fetchPost () {
             axios.get('/api/posts/' + this.postId + '?include=categories')
             .then(response => {
-                Vue.set(this, 'post', response.data)
+                this.$set(this, 'post', response.data)
                 this.simplemde.value(this.post.content)
-                Vue.set(this, 'value', response.data.categories.data)
+                this.$set(this, 'value', response.data.categories.data)
             })
         },
         updatePost (post) {
@@ -168,7 +168,7 @@ export default {
         },
         fetchCatetgories () {
             axios.get('/api/categories').then(response => {
-                Vue.set(this, 'options2', response.data.data)
+                this.$set(this, 'options2', response.data.data)
             })
         },
         onChangeAction (value) {

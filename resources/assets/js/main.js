@@ -9,13 +9,12 @@ import Users from './components/Users.vue'
 import Profile from './components/Profile.vue'
 import VueRouter from 'vue-router'
 import axios from 'axios'
-
-// Vue.prototype.$http = axios
-
 Vue.use(VueRouter)
+Vue.prototype.$http = axios
+
 
 // produces error
-Vue.use(axios)
+// Vue.use(axios)
 
 /* eslint-disable no-new */
 
