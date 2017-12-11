@@ -5,7 +5,7 @@
         <div class="col-lg-12">
           <!-- This is used as the file preview template -->
           <div>
-            <span class="preview"><img data-dz-thumbnail :src="model" id="eikona" height="250" class="img-responsive"/></span>
+            <span class="preview"><img data-dz-thumbnail :src="model" id="imager" height="250" class="img-responsive"/></span>
           </div>
         </div>
       </div>
@@ -112,7 +112,7 @@ export default{
     myDropzone.on("success", function(response) {
       // update image src
       let imageSrc = JSON.parse(response.xhr.response).image
-      document.getElementById('eikona').setAttribute('src', imageSrc)
+      document.getElementById('imager').setAttribute('src', imageSrc)
       // show actions
       document.getElementById('actions').style.display = "block";
       // hide previes

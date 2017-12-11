@@ -51,7 +51,7 @@
 import Vue from 'vue'
 
 export default {
-  name: 'Home',
+  name: 'HomePage',
   mounted () {
    this.fetchPosts()
    this.fetchCategories()

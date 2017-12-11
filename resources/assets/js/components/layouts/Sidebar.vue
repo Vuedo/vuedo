@@ -47,7 +47,7 @@ import { stack_bottomright, show_stack_success, show_stack_error, show_stack_inf
 import Vue from 'vue'
 
 export default {
-  name: 'SideItem',
+  name: 'SideBar',
   created () {
     this.fetchUser()
   },

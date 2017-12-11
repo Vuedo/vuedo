@@ -62,7 +62,7 @@
 import Vue from 'vue'
 
 export default {
-  name: 'NavItem',
+  name: 'NavBar',
   created() {
     this.fetchUser()
   },
