@@ -28,14 +28,14 @@
             </tr>
             <tr v-for="post in posts">
               <td>{{post.hashid}}</td>
-              <td class="col-md-3">{{post.title}}</td>
-              <td class="col-md-3">{{post.description}}</td>
-              <td class="col-md-2">
+              <td class="col-xs-2 col-md-3 col-lg-4">{{post.title}}</td>
+              <td class="col-xs-2 col-md-1 col-lg-4">{{post.description}}</td>
+              <td class="col-xs-2 col-md-1 col-lg-4">
                 <div class="box-body">
                   <img class="img-responsive img-thumbnail" :src="post.image || 'https://i.imgur.com/F12Dfl0.jpg'" alt="Photo">
                 </div>
               </td>
-              <td class="col-md-1">
+              <td class="col-xs-1 col-md-1 col-lg-4">
                 <div v-if="post.categories === undefined">
                   <b class="badge bg-aqua">{{singleCategory}}</b>
                 </div>
@@ -45,7 +45,7 @@
                  </div>
                 </div>
               </td>
-              <td class="col-md-3">
+              <td class="col-xs-8 col-md-6 col-lg-4">
                 <div class="btn-group">
                   <a v-if="post.status == 'approved'" :href="'/blog/' + post.slug" target="blank"  class="btn btn-success" role="button">View</a>
                   <router-link :to="{ name: 'editpost', params: { hashid: post.hashid }}" tag="button" class="btn btn-info">
