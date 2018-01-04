@@ -69,7 +69,7 @@ export default {
     },
     createPost () {
       if( !this.creatingPost ){
-        axios.post('/api/posts').then(function (response) {
+        axios.post('/api/posts').then(response => {
           show_stack_info('Creating post...', response)
           this.$router.push('/posts/'  + response.data.hashid + '/edit')
         }, function (response){

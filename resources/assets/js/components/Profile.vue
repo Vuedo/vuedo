@@ -53,6 +53,7 @@
 </template>
 
 <script>
+import Vue from 'vue'
 import { stack_bottomright, show_stack_success, show_stack_error } from '../Pnotice.js'
 
 export default {
@@ -76,13 +77,13 @@ export default {
   },
   methods: {
     fetchUser () {
-      this.$http({url: '/api/me', method: 'GET'}).then(function (response) {
-        Vue.set('user', response.data)
+      axios.get('/api/me').then(response => {
+        Vue.set(this, 'user', response.data)
       })
     },
     updateUser (user) {
       event.preventDefault();
-        this.$http.patch('/api/me', user).then(function (response) {
+      axios.patch('/api/me', user).then(response => {
           show_stack_success('User info updated.', response)
         }, function (response){
           show_stack_error('Failed to update user info.', response)
