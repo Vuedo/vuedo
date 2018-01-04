@@ -32,6 +32,7 @@
 </template>
 
 <script>
+import Vue from 'vue'
 import { stack_bottomright, show_stack_success, show_stack_error } from '../Pnotice.js'
 
 export default {
@@ -47,14 +48,15 @@ export default {
   methods: {
     fetchCategory () {
       let itemId = this.$route.params.hashid
-      this.$http({url: '/api/categories/' + itemId, method: 'GET'}).then(function (response) {
-        this.$set('category', response.data)
+      axios.get('/api/categories/' + itemId).then(response => {
+        Vue.set(this, 'category', response.data)
       })
     },
     updateCategory (category) {
       event.preventDefault();
-      this.$http.patch('/api/categories/' + category.hashid, category).then(function (response) {
+      axios.patch('/api/categories/' + category.hashid, category).then(response => {
         show_stack_success('Category saved', response)
+        this.$router.push('/categories/')
       }, function (response){
         show_stack_error('Failed to save category', response)
       })

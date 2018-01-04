@@ -133,7 +133,7 @@ export default {
             if (this.value === undefined || this.value == 0) {
                 swal('Sorry', 'Please add a category before publishing this post!', 'info')
             } else {
-                let self = this
+                // let self = this
                 swal({
                     title: 'You are about to publish this post!',
                     text: 'Are you sure?',
@@ -141,9 +141,9 @@ export default {
                     showCancelButton: true,
                     confirmButtonText: 'Yes, publish it!',
                     cancelButtonText: 'No, not yet.',
-                }).then(function () {
-                    self.updatePost(post).then(() => {
-                        axios.post('/api/posts/' + post.hashid + '/publish', post).then(function (response) {
+                }).then(response => {
+                    this.updatePost(post).then(() => {
+                        axios.post('/api/posts/' + post.hashid + '/publish', post).then(response => {
                             swal(
                                     'Published!',
                                     'Your post has been published to the world!.',
