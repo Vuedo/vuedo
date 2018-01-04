@@ -12,16 +12,16 @@
         <div class="box-body table-responsive">
           <table class="table table-striped">
             <tr>
-              <th class="col-md-4">Category Name</th>
-              <th class="col-md-4">Icon</th>
-              <th class="col-md-4">Actions</th>
+              <th class="col-xs-2 col-md-3 col-lg-4">Category Name</th>
+              <th class="col-xs-2 col-md-3 col-lg-4">Icon</th>
+              <th class="col-xs-8 col-md-6 col-lg-4">Actions</th>
             </tr>
             <tr v-for="category in categories">
-              <td class="col-md-4">
+              <td class="col-xs-2 col-md-3 col-lg-4">
                 {{category.name}}
               </td>
-              <td class="col-md-4">{{category.icon}}</td>
-              <td class="col-md-sm-4">
+              <td class="col-xs-2 col-md-3 col-lg-4">{{category.icon}}</td>
+              <td class="col-xs-8 col-md-6 col-lg-4">
                 <div class="btn-group">
                   <router-link :to="{ name: 'postincats', params: { hashid: category.hashid }}" tag="button" class="btn btn-success">
                     View posts
@@ -59,12 +59,12 @@ export default {
   },
   methods: {
     fetchCategories () {
-      this.$http({url: '/api/categories/', method: 'GET'}).then(response => {
+      axios.get('/api/categories/').then(response => {
         Vue.set(this, 'categories', response.data.data)
       })
     },
     createCategory () {
-      this.$http({url: '/api/categories', method: 'POST'}).then(function (response) {
+      axios.post('/api/categories').then(response => {
         show_stack_info('Creating Category...', response)
         this.$router.push('/categories/'  + response.data.hashid + '/edit')
       })
